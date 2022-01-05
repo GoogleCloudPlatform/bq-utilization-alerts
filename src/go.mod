@@ -17,7 +17,7 @@ module main
 go 1.17
 
 require (
-	cloud.google.com/go/bigquery v1.24.0
+	cloud.google.com/go/bigquery v1.25.0
 	cloud.google.com/go/storage v1.18.2
 	google.golang.org/api v0.60.0
 	google.golang.org/genproto v0.0.0-20211118181313-81c1377c94b1
