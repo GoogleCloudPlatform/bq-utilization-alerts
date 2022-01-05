@@ -1,0 +1,7 @@
+Reservation Report:
+
+{{ range $key, $value := .Reservations }}
+```
+{{$value.Name}} ({{$value.Location}}): {{$value.NumJobs}} jobs, using {{$value.TotalUsageCeiling}}/{{$value.Slots}} slots ({{$value.Percentage}}%) {{if $value.ThresholdBreached}} !!! {{end}}
+```
+{{end}}
