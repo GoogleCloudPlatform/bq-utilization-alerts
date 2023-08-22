@@ -21,9 +21,9 @@ import (
 	"strings"
 	"sync"
 
-	reservationSDK "cloud.google.com/go/bigquery/reservation/apiv1beta1"
+	reservationSDK "cloud.google.com/go/bigquery/reservation/apiv1"
+	reservationPB "cloud.google.com/go/bigquery/reservation/apiv1/reservationpb"
 	iterator "google.golang.org/api/iterator"
-	reservationPB "google.golang.org/genproto/googleapis/cloud/bigquery/reservation/v1beta1"
 
 	cloudresourcemanagerSDK "google.golang.org/api/cloudresourcemanager/v3"
 )
