@@ -18,7 +18,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"main/statequery"
 	"net/http"
@@ -197,7 +196,7 @@ func (cfg *config) hooks() map[string]string {
 		file := fmt.Sprintf("/%s/webhook", service)
 		_, err := os.Stat(file)
 		if err == nil {
-			secret, err := ioutil.ReadFile(file)
+			secret, err := os.ReadFile(file)
 			if err != nil {
 				log.Fatalf("failed to read secret from volume mount: %s\n", file)
 			}
