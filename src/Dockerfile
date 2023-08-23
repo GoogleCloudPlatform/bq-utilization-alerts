@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-FROM golang:1.16-buster AS build
+FROM golang:1.20 AS build
 
 WORKDIR /app
 
@@ -23,7 +23,9 @@ COPY main.go ./
 COPY statequery/ ./statequery
 RUN go mod download
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o  /server
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./server -ldflags="-w -s"
+
+COPY ./server /server
 
 FROM debian:buster-slim
 RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -32,7 +34,6 @@ RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -
 
 WORKDIR /
 
-COPY --from=build /server /server
 COPY ./templates/message.template ./templates/message.template
 
 ENTRYPOINT ["/server"]
