@@ -18,7 +18,7 @@ go 1.17
 
 require (
 	cloud.google.com/go/bigquery v1.54.0
-	cloud.google.com/go/storage v1.32.0
+	cloud.google.com/go/storage v1.33.0
 	google.golang.org/api v0.138.0
 )
 
