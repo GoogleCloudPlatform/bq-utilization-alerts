@@ -248,7 +248,7 @@ Now that the container image for the Cloud Run service has been built, it's time
 Hashicorp's `terraform` is used to setup infrastructure as code. To track the terraform state remotely, we first need to create a GCS bucket:
 
 ```terminal
-gsutil mb gs://$(gcloud config get-value project)-terraform-state/
+gcloud storage buckets create gs://$(gcloud config get-value project)-terraform-state/
 ```
 
 Update `terraform/config.tf` with the name of the newly created terraform state bucket.

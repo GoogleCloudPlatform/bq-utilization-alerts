@@ -13,7 +13,7 @@
 # limitations under the License.
 
 init:
-	gsutil mb gs://$$(gcloud config get-value project)-terraform-state/ || exit 0
+	gcloud storage buckets create gs://$$(gcloud config get-value project)-terraform-state/ || exit 0
 	terraform -chdir=terraform init
 
 local:
